@@ -1,7 +1,7 @@
 
-public class MockDemo {
+public class EmailSender {
 	
-	public MockDemo() {
+	public EmailSender() {
 		this(new Outbox() {
 			
 			public void send(Email email) {
@@ -13,7 +13,7 @@ public class MockDemo {
 
 	private final Outbox outbox;
 
-	public MockDemo(Outbox outbox) {
+	public EmailSender(Outbox outbox) {
 		this.outbox = outbox;
 	}
 

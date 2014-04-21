@@ -1,25 +1,25 @@
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 
-public class TestStubDemo {
+public class TestClock {
 
 	@Test
 	public void get_current_time_string() {
-		StubDemo demo = new TestClass4StubDemo();
-		String actual = demo.getCurrentTimeString();
+		Clock clock = new TestClass4Clock();
+		String actual = clock.getCurrentTimeString();
 		assertEquals("2013-12-01 10:00:00", actual);
 	}
 
 }
 
-class TestClass4StubDemo extends StubDemo {
+class TestClass4Clock extends Clock {
 	
 	protected Date getCurrentTime() {
 		try {

@@ -1,21 +1,21 @@
-
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
-public class TestMockDemo {
+public class TestEmailSender {
 
 	@Test
 	public void send_email() {
 		MockOutbox outbox = new MockOutbox();
-		MockDemo demo = new MockDemo(outbox);
+		EmailSender emailSender = new EmailSender(outbox);
 		Email email = new Email();
 		email.setSubject("subject");
 		email.setFromAddress("joseph@odd-e.com");
 		email.setContent("content");
 		
-		demo.sendEmail(email);
+		emailSender.sendEmail(email);
 		
 		outbox.verify();
 	}
@@ -38,5 +38,16 @@ class MockOutbox implements Outbox {
 		assertEquals("joseph@odd-e.comSent", email.getFromAddress());
 		assertEquals("contentSent", email.getContent());
 	}
+
+
+
+
+
+
+
+
+
+
+
 	
 }
