@@ -5,8 +5,7 @@ public class EmailSender {
 		this(new Outbox() {
 			
 			public void send(Email email) {
-				// TODO Auto-generated method stub
-				
+				// To call the real email sender service or API, e.g. JavaMail
 			}
 		});
 	}

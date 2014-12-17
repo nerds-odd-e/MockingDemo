@@ -1,15 +1,18 @@
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 public class Clock {
+    private final TimeProvider timeProvider;
 
-	public String getCurrentTimeString() {
-		return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(getCurrentTime());
-	}
-	
-	protected Date getCurrentTime() {
-		return new Date(System.currentTimeMillis());
-	}
+    public Clock() {
+        this(new SystemNowTimeProvider());
+    }
 
+    public Clock(TimeProvider timeProvider) {
+        this.timeProvider = timeProvider;
+    }
+
+    public String getCurrentTimeString() throws ParseException {
+        return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(timeProvider.getNow());
+    }
 }

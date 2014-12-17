@@ -16,7 +16,7 @@ public class TestEmailSender {
 		email.setContent("content");
 		
 		emailSender.sendEmail(email);
-		
+
 		outbox.verify();
 	}
 
@@ -35,19 +35,8 @@ class MockOutbox implements Outbox {
 	public void verify() {
 		assertTrue(isCalled);
 		assertEquals("subject" + "Sent", email.getSubject());
-		assertEquals("joseph@odd-e.comSent", email.getFromAddress());
-		assertEquals("contentSent", email.getContent());
+		assertEquals("joseph@odd-e.com" + "Sent", email.getFromAddress());
+		assertEquals("content" + "Sent", email.getContent());
 	}
 
-
-
-
-
-
-
-
-
-
-
-	
 }
